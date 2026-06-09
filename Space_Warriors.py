@@ -10,6 +10,8 @@ enemy_img=pygame.image.load("enemy.png")
 bullet_img=pygame.image.load("bullet.jpg")
 icon=pygame.image.load("ufo.webp")
 pygame.display.set_icon(icon)
+laser_sound = pygame.mixer.Sound('laser.wav')
+explosion_sound = pygame.mixer.Sound('explosion.wav')
 playerX,playerY=370,380
 player_speed=0
 enemies=[]
