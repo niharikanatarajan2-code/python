@@ -23,7 +23,7 @@ VALUES
 ("3007","brad davis","new york","200","5001"),
 ("3005","grahm zusi","california","200","5002"),
 ("3008","julian green","london","300","5002"),
-("3004","fabian johnson,"paris","300","5006");
+("3004","fabian johnson","paris","300","5006");
 CREATE TABLE IF NOT EXISTS Orders(
     ord_no TEXT PRIMARY KEY,
     purch_amt TEXT,
@@ -33,8 +33,29 @@ CREATE TABLE IF NOT EXISTS Orders(
 );
 INSERT INTO Orders(ord_no,purch_amt,ord_date,customer_id,Salesman_id)
 VALUES
-("70001"
-("70009"
-("70002"
-("70004"
-("70007"
+("70001","150.5","2012-10-05","3005","5002"),
+("70009","270.5","2012-09-10","3001","5001"),
+("70002","65.26","2012-10-05","3002","5003"),
+("70004","110.5","2012-08-17","3009","5007"),
+("70007","948.5","2012-09-10","3005","5005"),
+SELECT customer.cust_name,salesman.name,salesman.city
+FROM customer
+JOIN Salesman ON customer.cust_name,Salesman.name
+SELECT customer.cust_name,Salesman.name
+FROM customer
+JOIN Salesman ON Customer.Salesman_id=Salesman.Salesman_id,Orders.Salesman_id
+FROM Orders
+JOIN Customer ON Orders.customer_id=Customer.customer_id
+JOIN Salesman ON Orders.Salesman_id=Salesman.Salesman_id
+WHERE Customer.city <> Salesman.city;
+FROM Orders
+JOIN Salesman ON Orders.Salesman_id=Salesman.Salesman_id
+JOIN Customer ON Orders.Customer_id=Customer.Customer_id
+WHERE Customer.grade IS NOT NULL
+SELECT Customer.cust_name AS "Customer",
+Customer.city AS "city",
+Salesman.name AS "Salesman",
+Salesman.commission
+FROM Customer
+JOIN Salesman ON Customer.Salesman_id=Salesman.Salesman_id
+WHERE Salesman.commission BETWEEN 0.12 AND 0.14;
